@@ -8,7 +8,7 @@ interface BurgerMenuProps {
 }
 
 const BurgerMenuContainerToggle = styled.div <BurgerMenuProps>`
-  display:flex;
+  display:none;
   position: relative;
   align-items: center;
   width: 30px;
@@ -20,12 +20,12 @@ const BurgerMenuContainerToggle = styled.div <BurgerMenuProps>`
       transform: rotate(360deg);
     `}
 
-  @media (max-width: 1138px) {
+  @media (max-width: 800px) {
     display: flex;
   }
 `;
 const BurgerMenuContainer = styled.nav<BurgerMenuProps>`
-  display: ${(props) => (props.$OpenBurger ? "flex" : "none")};
+  display: none;
   position: absolute;
   flex-direction: column;
   justify-content: center;
@@ -36,11 +36,15 @@ const BurgerMenuContainer = styled.nav<BurgerMenuProps>`
   width: 420px;
   height: 100vh;
   z-index: 3;
-  background: #ffffff;
+  background: #cdcdcd;
   box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
   border-radius: 0px 0px 32px 32px;
-  transform: ${(props) => (props.$OpenBurger ? "translateX(0)" : "translateX(-421px)")};
+  transform: ${(props) => (props.$OpenBurger ? "translateX(0)" : "translateX(-1421px)")};
   transition: transform 0.4s;
+
+  @media (max-width: 800px) {
+    display: flex;
+  }
 `;
 
 const BurgerMenuList = styled.ul`
@@ -56,7 +60,7 @@ const BurgerMenuLink = styled.a`
   font-weight: 600;
   font-size: 20px;
   line-height: 50px;
-  background: #d8d8d8;
+  background: #a3a0a0;
   color: #ffffff;
 `;
 
@@ -126,7 +130,7 @@ const BurgerMenu = () => {
 
     return (
       <>
-        <BurgerMenuContainerToggle
+        <BurgerMenuContainerToggle         
           $OpenBurger={isActive}
           onClick={handleToggle}
         >

@@ -8,6 +8,13 @@ interface NavLinkActive {
 
 const Nav = styled.nav`
   padding-left: 24%;
+
+   @media (max-width: 1400px) {
+    padding-left: 0;
+
+    @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const NavList = styled.ul`
@@ -19,6 +26,18 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   padding-right: 75px;
+
+  @media (max-width: 1220px) {
+    padding-right: 60px;
+  }
+
+  @media (max-width: 1062px) {
+    padding-right: 20px;
+  }
+
+  @media (max-width: 880px) {
+    padding-right: 15px;
+  }
 `;
 
 const NavLink = styled.a<NavLinkActive>`
