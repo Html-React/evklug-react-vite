@@ -28,6 +28,13 @@ const SearchContainer = styled.div<SearchOpenProps>`
     props.$isOpenSearch ? "translateY(0)" : "translateY(-205px)"};
   transition: transform 0.7s;
   z-index: 1;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 69px;
+    border-radius: 0 0 24PX 24px;
+    z-index: 4;
+  }
 `;
 const SearchText = styled.div`
   width: 100%;

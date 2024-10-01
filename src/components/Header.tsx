@@ -21,6 +21,19 @@ const ContainerHeader = styled(Container)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 800px) {
+    height: 69px;
+  }
+`;
+
+const StyledLogo = styled.div`
+  svg {
+    @media (max-width: 800px) {
+      width: 180px;
+      height: auto;
+    }
+  }
 `;
 
 
@@ -32,10 +45,12 @@ const Header = () => {
       <ContainerHeader>
         <BurgerMenu />
         <LogoHref href="#0">
-          <Logo />
+          <StyledLogo>
+            <Logo />        
+          </StyledLogo>
         </LogoHref>
         <Menu />
-        <Search/>
+        <Search />
       </ContainerHeader>
     </HeaderContainer>
   );

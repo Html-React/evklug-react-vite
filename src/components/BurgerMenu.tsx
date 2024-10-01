@@ -31,19 +31,25 @@ const BurgerMenuContainer = styled.nav<BurgerMenuProps>`
   justify-content: center;
   text-align: center;
   align-items: center;
-  top: 0;
+  top:0;
   left: 0;
   width: 420px;
   height: 100vh;
   z-index: 3;
+  overflow: auto;
   background: #cdcdcd;
   box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
-  border-radius: 0px 0px 32px 32px;
-  transform: ${(props) => (props.$OpenBurger ? "translateX(0)" : "translateX(-1421px)")};
+  border-radius: 0px 0px 32px 0px;
+  transform: ${(props) =>
+    props.$OpenBurger ? "translateX(0)" : "translateX(-1421px)"};
   transition: transform 0.4s;
 
   @media (max-width: 800px) {
     display: flex;
+  }
+
+  @media (max-width: 420px) {
+    width: 100%;
   }
 `;
 
@@ -52,6 +58,8 @@ const BurgerMenuList = styled.ul`
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  padding-top: 50px; /* Отступ сверху */
+  box-sizing: border-box; /* Включаем паддинги в общие размеры блока */  
 `;
 
 const BurgerMenuLink = styled.a`
@@ -107,37 +115,45 @@ const BurgerMenuToggle = styled.div<BurgerMenuProps>`
 `;
 
 const BurgerMenu = () => {
-    const dropdownBurger = useRef<HTMLDivElement>(null);
-    const [isActive, setIsActive] = useState(false);
+  const dropdownBurger = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = useState(false);
 
-    const List = MenuList.map((item) => (
-      <li key={item.id}>
-        <BurgerMenuLink href={item.url}>
-          {item.name}
-        </BurgerMenuLink>
-      </li>
-    ));
+  const List = MenuList.map((item) => (
+    <li key={item.id}>
+      <BurgerMenuLink href={item.url}>
+        {item.name}
+      </BurgerMenuLink>
+    </li>
+  ));
 
-    const closedBurger = () => {
-      setIsActive(false);
-    };
+  const closedBurger = (e: MouseEvent | TouchEvent) => {
+    // Если клик был по кнопке-бургеру, не закрывать меню
+    if (toggleRef.current && toggleRef.current.contains(e.target as Node)) {
+      return;
+    }
+    setIsActive(false);
+  };
 
-    const handleToggle = () => {
-        setIsActive(!isActive);
-    };
+  const handleToggle = () => {
+      setIsActive(!isActive);
+  };
 
-    useOnClickOutside(dropdownBurger, closedBurger);
+  useOnClickOutside(dropdownBurger, closedBurger);
+
+  
 
     return (
       <>
-        <BurgerMenuContainerToggle         
+        <BurgerMenuContainerToggle
+          ref={toggleRef}
           $OpenBurger={isActive}
           onClick={handleToggle}
         >
           <BurgerMenuToggle $OpenBurger={isActive} />
         </BurgerMenuContainerToggle>
 
-        <BurgerMenuContainer ref={dropdownBurger} $OpenBurger={isActive}>
+        <BurgerMenuContainer ref={dropdownBurger} $OpenBurger={isActive}>         
           <BurgerMenuList>{List}</BurgerMenuList>
         </BurgerMenuContainer>
       </>
