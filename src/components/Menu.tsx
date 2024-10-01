@@ -9,10 +9,10 @@ interface NavLinkActive {
 const Nav = styled.nav`
   padding-left: 24%;
 
-   @media (max-width: 1400px) {
+  @media (max-width: 1400px) {
     padding-left: 0;
 
-    @media (max-width: 800px) {
+  @media (max-width: 800px) {
     display: none;
   }
 `;
