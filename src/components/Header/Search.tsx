@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import SearchIcon from "./SearchIcon";
-import closedSearchImg from "../assets/closed_search.png";
-import { useOnClickOutside } from "./UseOnClickOutside";
+import closedSearchImg from "../../assets/closed_search.png";
+import { useOnClickOutside } from "../UseOnClickOutside";
 
 interface SearchOpenProps {
   $isOpenSearch: boolean;
@@ -32,7 +32,7 @@ const SearchContainer = styled.div<SearchOpenProps>`
   @media (max-width: 800px) {
     width: 100%;
     height: 69px;
-    border-radius: 0 0 24PX 24px;
+    border-radius: 0 0 24px 24px;
     z-index: 4;
   }
 `;
@@ -84,7 +84,7 @@ const Search = () => {
   const [isIconVisible, setIsIconVisible] = useState(true);
   const [isOpenSearch, setIsOpenSearch] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
+
   const handleIconClick = () => {
     setIsIconVisible(false);
     setIsOpenSearch(true);
@@ -93,9 +93,9 @@ const Search = () => {
   const ClosedSearch = () => {
     setIsIconVisible(true);
     setIsOpenSearch(false);
-    };
-    
-    useOnClickOutside(dropdownRef, ClosedSearch);
+  };
+
+  useOnClickOutside(dropdownRef, ClosedSearch);
 
   return (
     <>

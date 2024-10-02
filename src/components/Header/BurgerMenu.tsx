@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
 import styled, { css } from "styled-components";
-import { useOnClickOutside } from "./UseOnClickOutside";
+import { useOnClickOutside } from "../UseOnClickOutside";
 import { MenuList } from "./MenuList";
 
 interface BurgerMenuProps {
-    $OpenBurger: boolean
+  $OpenBurger: boolean;
 }
 
-const BurgerMenuContainerToggle = styled.div <BurgerMenuProps>`
-  display:none;
+const BurgerMenuContainerToggle = styled.div<BurgerMenuProps>`
+  display: none;
   position: relative;
   align-items: center;
   width: 30px;
@@ -16,7 +16,9 @@ const BurgerMenuContainerToggle = styled.div <BurgerMenuProps>`
   transition: all 0.4s;
   z-index: 4;
 
-  ${(props) => props.$OpenBurger && css`
+  ${(props) =>
+    props.$OpenBurger &&
+    css`
       transform: rotate(360deg);
     `}
 
@@ -31,15 +33,15 @@ const BurgerMenuContainer = styled.nav<BurgerMenuProps>`
   justify-content: center;
   text-align: center;
   align-items: center;
-  top:0;
+  top: 0;
   left: 0;
   width: 420px;
   height: 100vh;
   z-index: 3;
   overflow: auto;
   background: #cdcdcd;
-  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
   border-radius: 0px 0px 32px 0px;
+  box-shadow: 5px 0px 8px 0px rgba(0,0,0,0.35);
   transform: ${(props) =>
     props.$OpenBurger ? "translateX(0)" : "translateX(-1421px)"};
   transition: transform 0.4s;
@@ -59,7 +61,7 @@ const BurgerMenuList = styled.ul`
   gap: 10px;
   width: 100%;
   padding-top: 50px; /* Отступ сверху */
-  box-sizing: border-box; /* Включаем паддинги в общие размеры блока */  
+  box-sizing: border-box; /* Включаем паддинги в общие размеры блока */
 `;
 
 const BurgerMenuLink = styled.a`
@@ -99,7 +101,9 @@ const BurgerMenuToggle = styled.div<BurgerMenuProps>`
     top: -10px;
   }
 
-  ${(props) => props.$OpenBurger && css`
+  ${(props) =>
+    props.$OpenBurger &&
+    css`
       transform: rotate(-45deg); // Применяется, если бургер-меню открыто
 
       &::after {
@@ -121,9 +125,7 @@ const BurgerMenu = () => {
 
   const List = MenuList.map((item) => (
     <li key={item.id}>
-      <BurgerMenuLink href={item.url}>
-        {item.name}
-      </BurgerMenuLink>
+      <BurgerMenuLink href={item.url}>{item.name}</BurgerMenuLink>
     </li>
   ));
 
@@ -136,28 +138,26 @@ const BurgerMenu = () => {
   };
 
   const handleToggle = () => {
-      setIsActive(!isActive);
+    setIsActive(!isActive);
   };
 
   useOnClickOutside(dropdownBurger, closedBurger);
 
-  
-
-    return (
-      <>
-        <BurgerMenuContainerToggle
-          ref={toggleRef}
-          $OpenBurger={isActive}
-          onClick={handleToggle}
-        >
+  return (
+    <>
+      <BurgerMenuContainerToggle
+        ref={toggleRef}
+        $OpenBurger={isActive}
+        onClick={handleToggle}
+      >
           <BurgerMenuToggle $OpenBurger={isActive} />
-        </BurgerMenuContainerToggle>
+      </BurgerMenuContainerToggle>
 
-        <BurgerMenuContainer ref={dropdownBurger} $OpenBurger={isActive}>         
+      <BurgerMenuContainer ref={dropdownBurger} $OpenBurger={isActive}>
           <BurgerMenuList>{List}</BurgerMenuList>
-        </BurgerMenuContainer>
-      </>
-    );
+      </BurgerMenuContainer>
+    </>
+  );
 };
 
 export default BurgerMenu;
