@@ -6,7 +6,7 @@ import { Button } from "../Main/Button";
 const StyledSection = styled(Container).attrs({ as: "section" })`
   position: relative;
   color: var(--color-White);
-  margin-top: 50px;
+  margin-top: 50px;  
 `;
 
 const ProjectContainer = styled.div`
@@ -19,6 +19,23 @@ const ProjectHeader = styled.h1`
   font-size: 70px;
   line-height: 85px;
   padding: 100px 80px 0 80px;
+
+  @media (max-width: 1652px) {
+    max-width: 100%;
+    padding-top: 60px;
+  }
+
+  @media (max-width: 1376px) {
+    padding-top: 20px;
+  }
+
+  @media (max-width: 1234px) {
+    padding-top: 4px;
+  }
+
+  @media (max-width: 1100px) {
+    
+  }
 `;
 const ProjectDescription = styled.p`
   max-width: 60%;
@@ -26,6 +43,14 @@ const ProjectDescription = styled.p`
   font-size: 24px;
   line-height: 29px;
   padding: 24px 80px 0 80px;
+
+  @media (max-width: 1655px) {
+    // font-size: 1.5rem;
+    max-width: 100%;
+  }
+
+  @media (max-width: 1100px) {
+  }
 `;
 const ProjectButton = styled(Button).attrs({ as: "button" })`
   font-weight: 700;
@@ -51,6 +76,17 @@ const ProjectButton = styled(Button).attrs({ as: "button" })`
   &:active {
     background: var(--color-Gamboge);
     color: var(--color-White);
+  }
+
+  @media (max-width: 1500px) {
+    margin-top: 50px;
+  }
+
+  @media (max-width: 1234px) {
+    margin-top: 26px;
+  }
+
+  @media (max-width: 1100px) {
   }
 `;
 

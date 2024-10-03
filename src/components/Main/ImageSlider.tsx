@@ -7,6 +7,35 @@ import { Autoplay, Pagination } from "swiper/modules";
 const StyledSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 20px;
+  }
+
+  .swiper-pagination-bullet {
+    width: var(
+      --swiper-pagination-bullet-width,
+      var(--swiper-pagination-bullet-size, 15px)
+    );
+    height: var(
+      --swiper-pagination-bullet-height,
+      var(--swiper-pagination-bullet-size, 15px)
+    );
+    background: var(
+      --swiper-pagination-bullet-inactive-color,
+      rgba(255, 255, 255, 0.4)
+    );
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 1);
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 10px);
+  }
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
@@ -26,43 +55,6 @@ const StyledSwiperSlide = styled(SwiperSlide)`
     object-fit: cover;
   }
 `;
-
-const StyledPagination = styled.div`
-  .swiper-horizontal > .swiper-pagination-bullets,
-  .swiper-pagination-bullets.swiper-pagination-horizontal,
-  .swiper-pagination-custom,
-  .swiper-pagination-fraction {
-    bottom: 20px;
-  }
-
-  .swiper-pagination-bullet {
-    width: var(
-      --swiper-pagination-bullet-width,
-      var(--swiper-pagination-bullet-size, 15px)
-    );
-    height: var(
-      --swiper-pagination-bullet-height,
-      var(--swiper-pagination-bullet-size, 15px)
-    );
-    background: var(
-      --swiper-pagination-bullet-inactive-color,
-      rgba(255, 255, 255, 0.4)
-    );
-    opacity: var(--swiper-pagination-bullet-inactive-opacity, 1);
-    transition: background 0.3s; // Добавим плавный переход для фона
-  }
-
-  .swiper-pagination-bullet-active {
-    background: var(--swiper-pagination-color, var(--swiper-theme-color));
-  }
-
-  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-  .swiper-pagination-horizontal.swiper-pagination-bullets
-    .swiper-pagination-bullet {
-    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 10px);
-  }
-`;
-
 
 const ImageSlider = () => {
   // Массив изображений
@@ -89,7 +81,7 @@ const ImageSlider = () => {
   ));
 
   return (
-    <>
+    <>      
       <StyledSwiper
         spaceBetween={30}
         centeredSlides={true}
@@ -102,8 +94,7 @@ const ImageSlider = () => {
         }}
         modules={[Autoplay, Pagination]}
       >
-        {ImageList}
-        <StyledPagination className="swiper-pagination" />
+        {ImageList}        
       </StyledSwiper>
     </>
   );

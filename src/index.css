@@ -33,6 +33,10 @@ body {
   line-height: 32px;
   color: var(--color-Black);
   background-color: var(--color-White);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 ul {
