@@ -6,12 +6,28 @@ import { Button } from "../Main/Button";
 const StyledSection = styled(Container).attrs({ as: "section" })`
   position: relative;
   color: var(--color-White);
-  margin-top: 50px;  
+  margin-top: 50px;
+
+  @media (max-width: 1025px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 680px) {
+    padding: 0 15px;
+  }
 `;
 
 const ProjectContainer = styled.div`
   position: absolute;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    margin-right: 50px;
+  }
+
+  @media (max-width: 680px) {
+    margin-right: 15px;
+  }
 `;
 const ProjectHeader = styled.h1`
   max-width: 60%;
@@ -22,19 +38,38 @@ const ProjectHeader = styled.h1`
 
   @media (max-width: 1652px) {
     max-width: 100%;
-    padding-top: 60px;
   }
 
-  @media (max-width: 1376px) {
-    padding-top: 20px;
+  @media (max-width: 1025px) {
+    font-size: 60px;
+    line-height: 73.14px;
+    padding: 160px 77px 0 77px;
   }
 
-  @media (max-width: 1234px) {
-    padding-top: 4px;
+  @media (max-width: 900px) {
+    padding: 77px 77px 0 77px;
   }
 
-  @media (max-width: 1100px) {
-    
+  @media (max-width: 768px) {
+    font-size: 50px;
+    line-height: 60.95px;
+    padding: 160px 40px 0 40px;
+  }
+
+  @media (max-width: 680px) {
+    font-size: 40px;
+    padding: 160px 21px 0 22px;
+    text-align: center;
+  }
+
+  @media (max-width: 534px) {
+    line-height: 47px;
+    padding: 45px 21px 0 22px;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 20px;
+    line-height: 24.38px;
   }
 `;
 const ProjectDescription = styled.p`
@@ -45,11 +80,29 @@ const ProjectDescription = styled.p`
   padding: 24px 80px 0 80px;
 
   @media (max-width: 1655px) {
-    // font-size: 1.5rem;
     max-width: 100%;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1025px) {
+    font-size: 20px;
+    line-height: 24.38px;
+    padding: 16px 187px 0 77px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 21.94px;
+    padding: 16px 40px 0 40px;
+  }
+
+  @media (max-width: 680px) {
+    padding: 16px 21px 0 22px;
+    text-align: center;
+  }
+
+  @media (max-width: 430px) {    
+    font-size: 12px;    
+    line-height: 14.63px;   
   }
 `;
 const ProjectButton = styled(Button).attrs({ as: "button" })`
@@ -82,11 +135,25 @@ const ProjectButton = styled(Button).attrs({ as: "button" })`
     margin-top: 50px;
   }
 
-  @media (max-width: 1234px) {
-    margin-top: 26px;
+  @media (max-width: 1025px) {
+    margin-top: 60px;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 768px) {
+    margin-left: 40px;
+  }
+
+  @media (max-width: 680px) {
+    display: flex;
+    margin: 60px auto;
+  }
+
+  @media (max-width: 430px) {
+    padding: 10px 22px;
+    border-radius: 6px;    
+    font-size: 12px;    
+    line-height: 14.63px;
+    margin: 32px auto;
   }
 `;
 

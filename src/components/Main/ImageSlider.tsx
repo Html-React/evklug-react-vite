@@ -6,7 +6,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 const StyledSwiper = styled(Swiper)`
   width: 100%;
-  height: 100%;
+  height: 620px;
+  border-radius: 10px;
 
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 20px;
@@ -36,6 +37,28 @@ const StyledSwiper = styled(Swiper)`
     .swiper-pagination-bullet {
     margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 10px);
   }
+
+  @media (max-width: 1025px) {
+    width: 100%;
+    height: 668px;
+  }
+
+  @media (max-width: 490px) {
+    height: 510px;
+  }
+
+  @media (max-width: 430px) {
+    height: 308px;
+    .swiper-pagination-bullet {
+        width: var(
+          --swiper-pagination-bullet-width,
+          var(--swiper-pagination-bullet-size, 10px)
+        );
+        height: var(
+          --swiper-pagination-bullet-height,
+          var(--swiper-pagination-bullet-size, 10px)
+        );
+    }
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
@@ -60,15 +83,15 @@ const ImageSlider = () => {
   // Массив изображений
   const IMAGE = [
     {
-      url: "../../src/assets/hero-pic-1920-2.png",
-      name: "фото высотное офисное здание",
-    },
-    {
-      url: "../../src/assets/hero-pic-1920-3.png",
+      url: "../../src/assets/pic_1.png",
       name: "фото здание со стеклянными балконами",
     },
     {
-      url: "../../src/assets/low-angle-photo-of-balconies.png",
+      url: "../../src/assets/pic_2.png",
+      name: "фото высотное офисное здание",
+    },
+    {
+      url: "../../src/assets/pic_3.png",
       name: "фото здание со стеклянными лоджиями",
     },
   ];
