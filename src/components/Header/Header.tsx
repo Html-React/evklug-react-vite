@@ -11,7 +11,7 @@ const HeaderContainer = styled.header`
   border-radius: 0px 0px 32px 32px;
 `;
 
-const LogoHref = styled.a`
+const LogoLink = styled.a`
   padding: 14px 0 3px 0;
 `;
 
@@ -44,11 +44,11 @@ const Header = () => {
     <HeaderContainer>
       <ContainerHeader>
         <BurgerMenu />
-        <LogoHref href="#0">
+        <LogoLink href="#0">
           <StyledLogo>
             <Logo />        
           </StyledLogo>
-        </LogoHref>
+        </LogoLink>
         <Menu />
         <Search />
       </ContainerHeader>
