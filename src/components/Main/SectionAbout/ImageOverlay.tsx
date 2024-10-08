@@ -25,12 +25,22 @@ const Overlay = styled.div`
   margin-top: 426px;
 `;
 const OverlayText = styled.p`
+  max-width: 433px;
+  margin: 50px 0 50px 50px;
   font-size: 16px;
   font-weight: 700;
   line-height: 32px;
   color: var(--color-White);
 `;
-const ButtonAbout = styled(Button).attrs({ as: "button" })``;
+const ButtonAbout = styled(Button).attrs({ as: "button" })`
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 18px 35px;
+  color: var(--color-White);
+  border: 3px solid var(--color-Orange);
+  border-radius: 16px;
+`;
 
 
 
