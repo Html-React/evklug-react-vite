@@ -1,4 +1,4 @@
-import SectionSlider from "./SectionSlider";
+import SectionSlider from "./SectionSlider/SectionSlider";
 
 const Main = () => {
     return (

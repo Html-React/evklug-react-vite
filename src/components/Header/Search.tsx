@@ -54,6 +54,16 @@ const SearchInput = styled.input`
 const SearchIconContainer = styled.div`
   display: flex;
   padding: 0 20px 0 14px;
+  
+  &:hover svg path {
+    stroke: var(--color-Orange);
+    transition: stroke 0.4s ease;
+  }
+
+  &:hover svg rect {
+    fill: var(--color-Orange);
+    transition: fill 0.4s ease;
+  }
 `;
 const SearchCloseButton = styled.div`
   display: flex;
@@ -109,7 +119,7 @@ const Search = () => {
         </SearchText>
 
         <SearchIconContainer>
-          <SearchIcon color="#FF9900" />
+          <SearchIcon/>
         </SearchIconContainer>
 
         <SearchCloseButton onClick={ClosedSearch}>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ImageSlider from "./ImageSlider";
-import { Container } from "../Container";
-import { Button } from "../Main/Button";
+import { Container } from "../../Container";
+import { Button } from "./Button";
 
 const StyledSection = styled(Container).attrs({ as: "section" })`
   position: relative;
