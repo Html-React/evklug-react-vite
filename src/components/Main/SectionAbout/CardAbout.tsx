@@ -6,10 +6,28 @@ interface InfoSectionProps {
   description: string;
 }
 
-const InfoSectionAbout = styled.div``;
-const InfoIcon = styled.div``;
-const InfoTitle = styled.h3``;
-const InfoDescription = styled.p``;
+const InfoSectionAbout = styled.div`
+  display: flex;
+  align-items: center;  
+  width: 872px;
+  min-height: 295px;
+  border: 1px solid #CACACA;
+`;
+
+const InfoIcon = styled.div`
+  padding: 0 50px 0 60px;
+`;
+const InfoContainer = styled.div`
+  margin-right: 80px;
+`;
+const InfoTitle = styled.h3`
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+`;
+const InfoDescription = styled.p`
+  padding-top: 8px;
+`;
 
 const InfoSection: React.FC<InfoSectionProps> = ({
   icon,
@@ -19,8 +37,10 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   return (
     <InfoSectionAbout>
       <InfoIcon>{icon}</InfoIcon>
-      <InfoTitle>{title}</InfoTitle>
-      <InfoDescription>{description}</InfoDescription>
+      <InfoContainer>
+        <InfoTitle>{title}</InfoTitle>
+        <InfoDescription>{description}</InfoDescription>
+      </InfoContainer>      
     </InfoSectionAbout>
   );
 };

@@ -9,7 +9,7 @@ interface ImageOverlayProps {
 
 const ImageOverlayAbout = styled.div`
   display: flex;
-  position: relative;
+  position: relative;  
 `;
 
 const ImageAbout = styled.img`  
@@ -19,20 +19,30 @@ const ImageAbout = styled.img`
 const Overlay = styled.div`
   display: flex;
   position: absolute;
+  justify-content: space-between;
+  align-items: center; 
   width: 868px;
   height: 196px;
   background: rgba(0, 0, 0, 0.5);  
   margin-top: 426px;
 `;
+
+const OverlayContainerText = styled.div`
+  padding-left: 50px;
+`
+const OverlayContainerButton = styled.div`
+  padding-right: 50px;
+`
+
 const OverlayText = styled.p`
-  max-width: 433px;
-  margin: 50px 0 50px 50px;
+  max-width: 433px;  
   font-size: 16px;
   font-weight: 700;
   line-height: 32px;
   color: var(--color-White);
 `;
-const ButtonAbout = styled(Button).attrs({ as: "button" })`
+
+const ButtonAbout = styled(Button).attrs({ as: "button" })`  
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
@@ -40,6 +50,16 @@ const ButtonAbout = styled(Button).attrs({ as: "button" })`
   color: var(--color-White);
   border: 3px solid var(--color-Orange);
   border-radius: 16px;
+
+  &:hover {
+    background: var(--color-Orange);  
+  }  
+
+  &:active {
+  background: var(--color-Gamboge);
+  border: 3px solid var(--color-Gamboge);
+  }
+  
 `;
 
 
@@ -53,8 +73,12 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({
     <ImageOverlayAbout>
       <ImageAbout src={imgSrc} alt="Рабочий на строительстве" />
       <Overlay>
-        <OverlayText>{overlayText}</OverlayText>
-        <ButtonAbout type="button">{buttonText}</ButtonAbout>
+        <OverlayContainerText>
+          <OverlayText>{overlayText}</OverlayText>
+        </OverlayContainerText>   
+        <OverlayContainerButton>
+          <ButtonAbout type="button">{buttonText}</ButtonAbout>
+        </OverlayContainerButton>        
       </Overlay>
     </ImageOverlayAbout>
   );
