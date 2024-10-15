@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 interface InfoTextProps {  
   title: string;
-  description: string;
+  description?: string;
 }
 
-const InfoTextAbout = styled.div``;
 const InfoTitle = styled.h1`
   font-weight: 400;
   font-size: 48px;
@@ -19,12 +18,12 @@ const InfoDescription = styled.p`
   max-width: 70%;
 `;
 
-const TextAbout: React.FC<InfoTextProps> = ({ title, description }) => {
+const TextAbout: React.FC<InfoTextProps> = ({ title, description = false}) => {
   return (
-    <InfoTextAbout>
+    <>
       <InfoTitle>{title}</InfoTitle>
-      <InfoDescription>{description}</InfoDescription>
-    </InfoTextAbout>
+      $decoration ? <InfoDescription>{description}</InfoDescription> : ''
+    </>
   );
 };
 

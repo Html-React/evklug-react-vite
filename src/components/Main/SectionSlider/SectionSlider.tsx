@@ -158,7 +158,7 @@ const ProjectButton = styled(Button).attrs({ as: "button" })`
 `;
 
 
-const SectionSlider = () => {
+const SectionSlider: React.FC = () => {
     return (
       <StyledSection>
         <ProjectContainer>
