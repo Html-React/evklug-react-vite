@@ -5,10 +5,11 @@ import ImageOverlay from "./ImageOverlay";
 import BoxIcon from "../../../assets/Frame16.svg?react";
 import GearIcon from "../../../assets/Frame12.svg?react";
 import ImgWorker from "../../../assets/worker.png";
-import TextAbout from "./TextAbout";
+import TextDescription from "../../TextDescription";
+import TextTitle from "../../TextTitle";
 
 const SectionAbout = styled(Container).attrs({ as: "section" })`
-padding-top: 100px;
+  padding-top: 100px;
 `;
 const MainLayout = styled.div`
   display: flex;
@@ -22,15 +23,23 @@ const InfoSections = styled.div`
   justify-content: space-between;
 `;
 
+const StyledTextDescription = styled(TextDescription)`
+  padding-top: 20px;
+  max-width: 70%; 
+`;
+
 
 
 const About: React.FC = () => {
   return (
     <SectionAbout>
-      <TextAbout
+      <TextTitle
         title="О нас"
+      />
+      <StyledTextDescription
         description="Также как перспективное планирование создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса экспериментов, поражающих по своей масштабности и грандиозности. А также диаграммы связей могут быть описаны максимально подробно. Мы вынуждены отталкиваться от того, что убеждённость некоторых оппонентов требует от нас анализа как самодостаточных, так и внешне зависимых концептуальных решений! Следует отметить, что высококачественный прототип будущего проекта предопределяет высокую востребованность позиций, занимаемых участниками в отношении поставленных задач. Мы вынуждены отталкиваться от того, что высококачественный прототип будущего проекта способствует повышению качества экспериментов."
       />
+
       <MainLayout>
         <ImageOverlay
           imgSrc={ImgWorker}
