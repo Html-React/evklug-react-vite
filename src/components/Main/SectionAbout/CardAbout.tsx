@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TextDescription from "../../TextDescription";
 
 interface InfoSectionProps {
   icon: React.ReactNode;
@@ -25,7 +26,7 @@ const InfoTitle = styled.h3`
   font-size: 24px;
   line-height: 29px;
 `;
-const InfoDescription = styled.p`
+const InfoDescription = styled(TextDescription)`
   padding-top: 8px;
 `;
 
@@ -39,7 +40,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
       <InfoIcon>{icon}</InfoIcon>
       <InfoContainer>
         <InfoTitle>{title}</InfoTitle>
-        <InfoDescription>{description}</InfoDescription>
+        <InfoDescription description={description} />
       </InfoContainer>      
     </InfoSectionAbout>
   );
