@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container } from "../../Container";
-import TextAbout from "../SectionAbout/TextAbout";
+import TextTitle from "../../TextTitle";
 
 
 const SectionWork = styled(Container).attrs({ as: "section" })`
@@ -10,7 +10,7 @@ const SectionWork = styled(Container).attrs({ as: "section" })`
 const Work: React.FC = () => {    
     return (
         <SectionWork>
-            <TextAbout
+            <TextTitle
                 title="Как мы работаем"                
             />  
         </SectionWork>
