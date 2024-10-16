@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Container } from "../../Container";
 import TextTitle from "../../TextTitle";
+import WorkContent from "./WorkContent.tsx";
 
 
 const SectionWork = styled(Container).attrs({ as: "section" })`
@@ -12,7 +13,8 @@ const Work: React.FC = () => {
         <SectionWork>
             <TextTitle
                 title="Как мы работаем"                
-            />  
+            />
+            <WorkContent />
         </SectionWork>
     );
 };

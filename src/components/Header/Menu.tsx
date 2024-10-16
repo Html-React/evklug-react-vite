@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { MenuList } from "./MenuList";
+import { MenuList } from "./MenuList"; // импортируем типизированный список
 
+// Интерфейс для пропсов активного состояния NavLink
 interface NavLinkActive {
   $isActive: boolean;
 }
@@ -11,6 +12,7 @@ const Nav = styled.nav`
 
   @media (max-width: 1400px) {
     padding-left: 0;
+  }
 
   @media (max-width: 800px) {
     display: none;
@@ -45,33 +47,31 @@ const NavLink = styled.a<NavLinkActive>`
   color: ${(props) =>
     props.$isActive ? "var(--color-Orange)" : "var(--color-Black)"};
   padding: 5px;
-  text-decoration: none; /* Убираем стандартное подчеркивание */
-
-  /* Настройки для плавности всех анимаций */
+  text-decoration: none;
   transition: color 0.7s;
 
-  /* Псевдоэлемент для анимации бордера */
   &::before {
     content: "";
     position: absolute;
     left: ${(props) => (props.$isActive ? "0" : "50%")};
     bottom: 0;
-    width: ${(props) => props.$isActive ? "100%" : "0"}; /* Изменение ширины в зависимости от активности */
+    width: ${(props) => (props.$isActive ? "100%" : "0")};
     height: 2px;
     background-color: var(--color-Orange);
     transition: width 0.4s ease, left 0.4s ease;
   }
 
-  /* Эффект при наведении */
   &:hover::before {
     width: 100%;
     left: 0;
   }
 `;
 
-const Menu = () => {
-  const [activeItemId, setActiveItemId] = useState<string | null>(null); // Состояние для хранения активного элемента
+// Типизация компонента Menu
+const Menu: React.FC = () => {
+  const [activeItemId, setActiveItemId] = useState<string>("0"); // Состояние для хранения активного элемента
 
+  // Типизация функции handleClick
   const handleClick = (id: string) => {
     setActiveItemId(id); // Устанавливаем активный элемент при клике
   };
