@@ -15,6 +15,7 @@ const ImageOverlayAbout = styled.div`
 const ImageAbout = styled.img`  
   width: 868px;
   height: 622px;
+  border-radius: 32px;
 `;
 const Overlay = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ const Overlay = styled.div`
   height: 196px;
   background: rgba(0, 0, 0, 0.5);  
   margin-top: 426px;
+  border-radius: 0 0 32px 32px;
 `;
 
 const OverlayContainerText = styled.div`

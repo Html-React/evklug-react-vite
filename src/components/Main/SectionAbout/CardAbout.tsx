@@ -13,6 +13,7 @@ const InfoSectionAbout = styled.div`
   width: 872px;
   min-height: 295px;
   border: 1px solid #CACACA;
+  border-radius: 32px;
 `;
 
 const InfoIcon = styled.div`

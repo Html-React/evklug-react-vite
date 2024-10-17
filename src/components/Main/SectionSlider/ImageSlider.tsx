@@ -7,7 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 const StyledSwiper = styled(Swiper)`
   width: 100%;
   height: 620px;
-  border-radius: 10px;
+  border-radius: 32px;
 
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 20px;
@@ -41,10 +41,12 @@ const StyledSwiper = styled(Swiper)`
   @media (max-width: 1025px) {
     width: 100%;
     height: 668px;
+    border-radius: 24px;
   }
 
   @media (max-width: 490px) {
     height: 510px;
+    border-radius: 16px;
   }
 
   @media (max-width: 430px) {
