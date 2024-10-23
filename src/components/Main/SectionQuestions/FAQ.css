@@ -1,0 +1,11 @@
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0;
+}
+
+.faq-answer.open {
+  max-height: 500px; /* Установите большее значение, если ваши тексты длинные */
+  padding: 10px 0;
+}

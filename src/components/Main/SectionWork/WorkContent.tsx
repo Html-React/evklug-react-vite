@@ -127,10 +127,7 @@ const WorkContent: React.FC = () => {
       <WorkBlock>
         <WorkBlockContent>
           <Title>{selectedWork.title}</Title>
-          <TextDescription description={selectedWork.description} />
-          {selectedWork.descriptionOne && (
-            <TextDescription description={selectedWork.descriptionOne} />
-          )}
+          <TextDescription description={selectedWork.description} />         
 
           {selectedWork.id === "0" && (
             <ButtonBlock>

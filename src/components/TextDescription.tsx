@@ -13,7 +13,12 @@ const InfoDescription = styled.p`
 
 const TextDescription: React.FC<DescriptionTextProps> = ({ description, className }) => {
 
-  return <InfoDescription className={className}>{description}</InfoDescription>;
+  return (
+    <InfoDescription
+      className={className}
+      dangerouslySetInnerHTML={{ __html: description }}
+    />
+  );
     
 };
 
