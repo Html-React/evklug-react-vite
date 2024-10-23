@@ -19,7 +19,7 @@ const WorkBlock = styled.div`
   margin-top: 45px;  
 `;
 const WorkBlockContent = styled.div`
-  width: 758px;
+  width: 740px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Все элементы в начале контейнера */
@@ -128,6 +128,9 @@ const WorkContent: React.FC = () => {
         <WorkBlockContent>
           <Title>{selectedWork.title}</Title>
           <TextDescription description={selectedWork.description} />
+          {selectedWork.descriptionOne && (
+            <TextDescription description={selectedWork.descriptionOne} />
+          )}
 
           {selectedWork.id === "0" && (
             <ButtonBlock>
