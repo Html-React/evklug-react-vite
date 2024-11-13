@@ -3,7 +3,7 @@ import SectionSlider from "./SectionSlider/SectionSlider";
 import Work from "./SectionWork/Work";
 import Questions from "./SectionQuestions/Questions";
 
-const Main = () => {
+const Main: React.FC = () => {
     return (
         <main>
             <SectionSlider />

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { QuestionsItem, QuestionsList } from "./QuestionsList";
 
 interface AnswerOpenProps {
-  $isOpen: boolean;  
+  $QuestionsIsOpen: boolean;
 }
 
 const CloseOpenBox = styled.span<AnswerOpenProps>`
@@ -26,17 +26,17 @@ const CloseOpenBox = styled.span<AnswerOpenProps>`
 
   &::before {
     width: 31px;
-    height: 2px;
+    height: 1px;
   }
 
   &::after {
-    width: 2px;
+    width: 1px;
     height: 31px;
   }
 
   /* Меняем вид значка в зависимости от состояния */
   ${(props) =>
-    props.$isOpen &&
+    props.$QuestionsIsOpen &&
     `     
       &::before,
       &::after {
@@ -83,16 +83,18 @@ const Question = styled.button<AnswerOpenProps>`
 
   &:hover {
     color: ${(props) =>
-      props.$isOpen ? "var(--color-Black)" : "var(--color-Orange)"};
+      props.$QuestionsIsOpen ? "var(--color-Black)" : "var(--color-Orange)"};
   }
 
   &:hover ${CloseOpenBox} {
     background-color: ${(props) =>
-      props.$isOpen ? "var(--color-PastelGray)" : "var(--color-Orange)"};
+      props.$QuestionsIsOpen
+        ? "var(--color-PastelGray)"
+        : "var(--color-Orange)"};
     &::before,
     &::after {
       background-color: ${(props) =>
-        props.$isOpen ? "var(--color-Black)" : "var(--color-White)"};
+        props.$QuestionsIsOpen ? "var(--color-Black)" : "var(--color-White)"};
     }
   }
 `;
@@ -102,9 +104,9 @@ const Answer = styled.div<AnswerOpenProps>`
   font-weight: 400;
   line-height: 32px;
   text-align: left;
-  opacity: ${(props) => (props.$isOpen ? "1" : "0")};
-  max-height: ${(props) => (props.$isOpen ? "1000px" : "0px")};
-  padding: ${(props) => (props.$isOpen ? "0 0 40px 0" : "0")};  
+  opacity: ${(props) => (props.$QuestionsIsOpen ? "1" : "0")};
+  max-height: ${(props) => (props.$QuestionsIsOpen ? "1000px" : "0px")};
+  padding: ${(props) => (props.$QuestionsIsOpen ? "0 0 40px 0" : "0")};  
   transform-origin: top;
   transition: padding 0.6s ease, opacity 0.9s ease, max-height 0.9s ease;
   overflow: hidden;
@@ -129,19 +131,20 @@ const QuestionsContent: React.FC = () => {
   return (
     <ul>
       {QuestionsList.map((item: QuestionsItem) => (
-        <FaqItem>
+        <FaqItem key={item.id}>
           <Question
-            key={item.id}
             onClick={() => toggleFAQ(item.id)}
-            $isOpen={openQuestionIds.includes(item.id)}
+            $QuestionsIsOpen={openQuestionIds.includes(item.id)}
             aria-expanded={openQuestionIds.includes(item.id)}
             aria-controls={`faq-answer-${item.id}`}
           >
             {item.title}
-            <CloseOpenBox $isOpen={openQuestionIds.includes(item.id)} />
+            <CloseOpenBox
+              $QuestionsIsOpen={openQuestionIds.includes(item.id)}
+            />
           </Question>
           <Answer
-            $isOpen={openQuestionIds.includes(item.id)}
+            $QuestionsIsOpen={openQuestionIds.includes(item.id)}
             id={`faq-answer-${item.id}`}
           >
             <AnswerContent

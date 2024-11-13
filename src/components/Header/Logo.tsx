@@ -1,7 +1,7 @@
 interface LogoProps {
   color?: string;
-  width?: number;
-  height?: number;
+  width?: string;
+  height?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({
