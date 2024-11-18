@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { WorkList, WorkItem } from "./WorkList";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import TextDescription from "../../TextDescription";
 import { Button } from "../SectionSlider/Button";
 
@@ -10,13 +10,25 @@ interface ButtonSelectedProps {
 
 const WorkButton = styled.div`
   margin-top: 50px;
-  }
 `;
-const WorkBlock = styled.div`
+const WorkBlock = styled.div<{ $fade: boolean }>`
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;  
-  margin-top: 45px;  
+  flex-wrap: wrap;
+  margin-top: 45px;
+
+  /* Анимация */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  ${({ $fade }) =>
+    $fade
+      ? css`
+          opacity: 0;
+          transform: translateY(20px);
+        `
+      : css`
+          opacity: 1;
+          transform: translateY(0);
+        `}
 `;
 const WorkBlockContent = styled.div`
   width: 740px;
@@ -106,8 +118,13 @@ const ButtonContract = styled(Button).attrs({ as: "button" })`
 
 const WorkContent: React.FC = () => {  
   const [selectedWork, setSelectedWork] = useState<WorkItem>(WorkList[0]);
+  const [fade, setFade] = useState<boolean>(false);
   const handleClick = (item: WorkItem) => {
-    setSelectedWork(item);    
+    setFade(true); // Включаем анимацию исчезновения
+    setTimeout(() => {
+      setSelectedWork(item);; // Меняем контент
+      setFade(false); // Включаем анимацию появления
+    }, 300);        
   };
 
   return (
@@ -124,10 +141,10 @@ const WorkContent: React.FC = () => {
         ))}
       </WorkButton>
 
-      <WorkBlock>
+      <WorkBlock $fade={fade}>
         <WorkBlockContent>
           <Title>{selectedWork.title}</Title>
-          <TextDescription description={selectedWork.description} />         
+          <TextDescription description={selectedWork.description} />
 
           {selectedWork.id === "0" && (
             <ButtonBlock>

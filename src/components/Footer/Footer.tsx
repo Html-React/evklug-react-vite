@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Container } from "../Container";
 import FooterMenu from "./Menu";
-import FooterForm from "./form";
-import FooterContent from "./content";
+import FooterForm from "./Form";
+import FooterContent from "./Content";
 
 const FooterSections = styled.footer`
   background-color: var(--color-Black);
